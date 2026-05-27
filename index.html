@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobShield | Scam Job Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="brand">
+        <span class="brand-icon">🛡️</span>
+        <span>JobShield</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#search">Verify</a>
+        <a href="#report">Report</a>
+        <a href="#review">Review</a>
+      
+    </div>
+</nav>
+
+<section id="authPage" class="auth-screen">
+
+    <div id="registerBox" class="glass-card auth-box">
+        <h1>🛡️ JobShield</h1>
+        <p class="muted">Create your account to continue</p>
+
+        <h2>Register</h2>
+
+        <input type="text" id="regName" placeholder="Your Name">
+        <input type="email" id="regEmail" placeholder="Email Address">
+
+        <div class="password-box">
+            <input type="password" id="regPassword" placeholder="Password">
+            <span class="eye-icon" onclick="togglePassword('regPassword', this)">👁️</span>
+        </div>
+
+        <button onclick="registerUser()">Register</button>
+
+        <div id="registerMessage"></div>
+
+        <p class="switch-text">Already registered?</p>
+
+        <button class="outline-btn" onclick="showLoginBox()">
+            Login
+        </button>
+    </div>
+
+    <div id="loginBox" class="glass-card auth-box" style="display:none;">
+        <h1>🛡️ JobShield</h1>
+        <p class="muted">Login to access JobShield</p>
+
+        <h2>Login</h2>
+
+        <input type="email" id="loginEmail" placeholder="Email Address">
+
+        <div class="password-box">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <span class="eye-icon" onclick="togglePassword('loginPassword', this)">👁️</span>
+        </div>
+
+        <button onclick="loginUser()">Login</button>
+
+        <div id="loginMessage"></div>
+
+        <p class="switch-text">New user?</p>
+
+        <button class="outline-btn" onclick="showRegisterBox()">
+            Register
+        </button>
+    </div>
+
+</section>
+
+<div id="mainWebsite" style="display:none;">
+
+    <section class="hero">
+        <div class="hero-left">
+            <span class="pill">Shielding Careers, Saving Futures</span>
+
+            <h1>Verify job offers before you trust them.</h1>
+
+            <p>
+                JobShield helps students and freshers detect fake internships,
+                suspicious recruiters, payment scams, and fake placement offers.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#search" class="primary-btn">Check Company</a>
+                <a href="#report" class="secondary-btn">Report Scam</a>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <h3>100%</h3>
+                    <p>Community powered</p>
+                </div>
+                <div>
+                    <h3>24/7</h3>
+                    <p>Scam awareness</p>
+                </div>
+                <div>
+                    <h3>Secure</h3>
+                    <p>JWT backend</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="shield-card">
+                <div class="big-shield">🛡️</div>
+                <h2>Trust Scanner</h2>
+                <p>Analyze company trust score, scam reports, and reviews.</p>
+
+                <div class="scan-line"></div>
+
+                <div class="mini-card safe">Trusted Company</div>
+                <div class="mini-card warning">Suspicious Activity</div>
+                <div class="mini-card danger">Scam Reported</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section class="feature-card search-section" id="search">
+            <div class="section-heading">
+                <span>🔍</span>
+                <div>
+                    <h2>Company Trust Verification</h2>
+                    <p>Search and check whether a company looks trusted, suspicious, or scam reported.</p>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="companyName" placeholder="Search company name, e.g. Fake Tech Pvt Ltd">
+                <button onclick="searchCompany()">Scan Now</button>
+            </div>
+
+            <div id="result"></div>
+        </section>
+
+        <section class="forms-grid">
+            <div class="feature-card" id="report">
+                <div class="section-heading">
+                    <span>🚨</span>
+                    <div>
+                        <h2>Report Scam</h2>
+                        <p>Warn others about fake recruiters and payment scams.</p>
+                    </div>
+                </div>
+
+                <input type="text" id="reportCompanyName" placeholder="Company Name">
+                <input type="text" id="reportedBy" placeholder="Your Name">
+                <input type="text" id="fakeHrName" placeholder="Fake HR Name">
+                <input type="email" id="fakeHrEmail" placeholder="Fake HR Email">
+<input type="text"id="fakeHrPhone"placeholder="Fake HR Phone Number"maxlength="10"oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+<input type="text"id="paymentAmount"placeholder="Payment Amount Asked"oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+<select id="chatPlatform">
+    <option value="">Select Chat Platform</option>
+    <option value="WhatsApp">WhatsApp</option>
+    <option value="Telegram">Telegram</option>
+    <option value="Email">Email</option>
+    <option value="Instagram">Instagram</option>
+    <option value="LinkedIn">LinkedIn</option>
+    <option value="Other">Other</option>
+</select>
+
+
+
+                <select id="paymentRequested">
+                    <option value="false">Payment Not Requested</option>
+                    <option value="true">Payment Requested</option>
+                </select>
+
+                <textarea id="description" placeholder="Describe the scam experience"></textarea>
+
+                <button onclick="submitScamReport()">Submit Report</button>
+                <div id="reportMessage"></div>
+            </div>
+
+            <div class="feature-card" id="review">
+                <div class="section-heading">
+                    <span>⭐</span>
+                    <div>
+                        <h2>Add Review</h2>
+                        <p>Share your real experience with a company.</p>
+                    </div>
+                </div>
+
+                <input type="text" id="reviewCompanyName" placeholder="Company Name">
+                <input type="text" id="reviewerName" placeholder="Your Name">
+                <input type="number" id="rating" placeholder="Rating 1 to 5" min="1" max="5">
+                <textarea id="reviewText" placeholder="Write your review"></textarea>
+
+                <button onclick="submitReview()">Submit Review</button>
+                <div id="reviewMessage"></div>
+            </div>
+        </section>
+        </section>
+        <section class="feature-card" id="viewScamReports">
+
+    <div class="section-heading">
+        <span>🚨</span>
+
+        <div>
+            <h2>View Scam Reports</h2>
+            <p>See scam complaints reported by other users.</p>
+        </div>
+    </div>
+
+    <div class="search-box">
+
+        <input type="text"
+        id="viewScamCompanyName"
+        placeholder="Enter company name">
+
+        <button onclick="viewScamReports()">
+            View Scam Reports
+        </button>
+
+    </div>
+
+    <div id="scamReportsResult"></div>
+
+</section>
+
+<section class="feature-card" id="viewReviews">
+    <div class="section-heading">
+        <span>💬</span>
+        <div>
+            <h2>View Company Reviews</h2>
+            <p>See reviews shared by other users for a company.</p>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <input type="text"
+        id="viewReviewCompanyName"
+        placeholder="Enter company name">
+
+        <button onclick="viewReviews()">
+            View Reviews
+        </button>
+    </div>
+
+    <div id="reviewsResult"></div>
+</section>
+
+<section class="feature-card admin-panel"
+id="admin"
+style="display:none;">
+
+        <section class="feature-card admin-panel" id="admin" style="display:none;">
+            <div class="section-heading">
+                <span>📊</span>
+                <div>
+                    <h2>Admin Dashboard</h2>
+                    <p>Manage companies, users, scam reports, and platform safety.</p>
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <button onclick="loadUsers()">Users</button>
+                <button onclick="loadCompanies()">Companies</button>
+                <button onclick="loadScamReports()">Scam Reports</button>
+            </div>
+
+            <div id="adminResult"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>🛡️ JobShield — Built to protect freshers from fake jobs and internship scams.</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

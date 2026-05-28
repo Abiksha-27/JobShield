@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:7071";
+const API_BASE_URL = "http://localhost:8081";
 function isValidEmail(email) {
     return email.includes("@") && email.includes(".");
 }
@@ -140,7 +140,6 @@ function loginUser() {
 }
 function searchCompany() {
     const name = document.getElementById("companyName").value.trim();
-    const location =document.getElementById("location").value;
     const resultDiv = document.getElementById("result");
 
     if (name === "") {

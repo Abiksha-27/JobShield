@@ -13,8 +13,7 @@ function togglePassword(id) {
     }
 }
 window.onload = function () {
-    localStorage.removeItem("token");
-    showRegisterBox();
+    showMainWebsite();
 };
 
 function showMessage(id, message, type) {
